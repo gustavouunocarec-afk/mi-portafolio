@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gustavo Unocc | Portafolio Profesional</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Poppins & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#FACC15',
+                            500: '#EAB308',
+                            600: '#CA8A04',
+                            glow: 'rgba(234, 179, 8, 0.25)',
+                        },
+                        dark: {
+                            bg: '#0F172A',
+                            card: '#1E293B',
+                            border: '#334155'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Glassmorphism Styles */
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(234, 179, 8, 0.15);
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF 30%, #EAB308 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-glow {
+            box-shadow: 0 0 25px rgba(234, 179, 8, 0.2);
+        }
+
+        .gold-glow-hover:hover {
+            box-shadow: 0 0 30px rgba(234, 179, 8, 0.35);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0F172A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #EAB308;
+        }
+    </style>
+</head>
+<body class="bg-dark-bg text-slate-200 font-sans antialiased selection:bg-gold-500 selection:text-black">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#hero" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center font-heading font-bold text-dark-bg text-xl shadow-lg group-hover:scale-105 transition-transform">
+                        GU
+                    </div>
+                    <span class="font-heading font-bold text-xl tracking-wide text-white group-hover:text-gold-400 transition-colors">
+                        GUSTAVO<span class="text-gold-500">.UNOCC</span>
+                    </span>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#about" class="text-sm font-medium text-slate-300 hover:text-gold-400 transition-colors">Sobre Mí</a>
+                    <a href="#skills" class="text-sm font-medium text-slate-300 hover:text-gold-400 transition-colors">Habilidades</a>
+                    <a href="#projects" class="text-sm font-medium text-slate-300 hover:text-gold-400 transition-colors">Proyectos</a>
+                    <a href="#contact" class="px-5 py-2.5 rounded-xl bg-gold-500 text-dark-bg font-semibold text-sm hover:bg-gold-400 transition-all gold-glow-hover transform hover:-translate-y-0.5">
+                        Contacto
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" type="button" class="text-slate-300 hover:text-gold-400 focus:outline-none p-2" aria-label="Abrir Menú">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-b border-dark-border px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="block py-2 text-slate-300 hover:text-gold-400 font-medium border-b border-slate-800">Sobre Mí</a>
+            <a href="#skills" class="block py-2 text-slate-300 hover:text-gold-400 font-medium border-b border-slate-800">Habilidades</a>
+            <a href="#projects" class="block py-2 text-slate-300 hover:text-gold-400 font-medium border-b border-slate-800">Proyectos</a>
+            <a href="#contact" class="block py-2.5 mt-2 text-center rounded-xl bg-gold-500 text-dark-bg font-semibold">Contacto</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen flex items-center pt-24 pb-16 relative overflow-hidden">
+        <!-- Background Decorative Glows -->
+        <div class="absolute top-1/4 left-10 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Text -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel text-gold-400 border border-gold-500/30 text-xs sm:text-sm font-medium">
+                        <span class="w-2 h-2 rounded-full bg-gold-400 animate-ping"></span>
+                        Estudiante de APSTI & Desarrollador
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl font-heading font-extrabold tracking-tight text-white leading-tight">
+                        Hola, soy <br class="hidden sm:block"/>
+                        <span class="gold-gradient-text">GUSTAVO UNOCC</span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-slate-300 font-light leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        Especialista en formación en <strong class="text-white font-semibold">Arquitectura de Plataformas y Servicios de Tecnologías de Información</strong>. Apasionado por la creación de soluciones móviles, desarrollo web e infraestructura TI.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#projects" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gold-500 text-dark-bg font-bold text-base hover:bg-gold-400 transition-all duration-300 gold-glow hover:scale-105 flex items-center justify-center gap-2">
+                            Ver Proyectos <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                        <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-panel text-white font-semibold text-base border border-slate-700 hover:border-gold-500/50 hover:text-gold-400 transition-all duration-300 flex items-center justify-center gap-2">
+                            Contactar
+                        </a>
+                    </div>
+
+                    <!-- Social Icons -->
+                    <div class="flex items-center justify-center lg:justify-start gap-5 pt-6 text-slate-400">
+                        <a href="https://github.com" target="_blank" rel="noopener" class="hover:text-gold-400 text-2xl transition-colors" aria-label="GitHub">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener" class="hover:text-gold-400 text-2xl transition-colors" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:gustavo.unocc@example.com" class="hover:text-gold-400 text-2xl transition-colors" aria-label="Email">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Profile Card / Visual -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <!-- Card Glow Background -->
+                        <div class="absolute -inset-1 bg-gradient-to-r from-gold-500 to-amber-700 rounded-3xl blur opacity-30 group-hover:opacity-100 transition duration-1000"></div>
+                        
+                        <div class="relative glass-panel rounded-3xl p-8 border border-slate-700/60 shadow-2xl space-y-6">
+                            <!-- Avatar Placeholder / Graphic -->
+                            <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-tr from-slate-800 to-slate-700 p-1 border-2 border-gold-500/50 relative shadow-inner">
+                                <div class="w-full h-full rounded-full bg-dark-bg flex items-center justify-center text-gold-400 text-5xl">
+                                    <i class="fa-solid fa-user-gear"></i>
+                                </div>
+                                <div class="absolute bottom-1 right-1 w-6 h-6 bg-emerald-500 rounded-full border-2 border-dark-bg" title="Disponible para proyectos"></div>
+                            </div>
+
+                            <div class="text-center space-y-2">
+                                <h3 class="text-xl font-bold text-white">Gustavo Unocc</h3>
+                                <p class="text-xs text-gold-400 uppercase tracking-widest font-semibold">Técnico APSTI & Dev</p>
+                            </div>
+
+                            <!-- Info Grid -->
+                            <div class="space-y-3 pt-2 text-sm border-t border-slate-800">
+                                <div class="flex justify-between items-center text-slate-300">
+                                    <span class="text-slate-400"><i class="fa-solid fa-graduation-cap text-gold-400 mr-2"></i>Especialidad:</span>
+                                    <span class="font-medium text-right">APSTI</span>
+                                </div>
+                                <div class="flex justify-between items-center text-slate-300">
+                                    <span class="text-slate-400"><i class="fa-solid fa-code text-gold-400 mr-2"></i>Enfoque:</span>
+                                    <span class="font-medium">Mobile & Web Dev</span>
+                                </div>
+                                <div class="flex justify-between items-center text-slate-300">
+                                    <span class="text-slate-400"><i class="fa-solid fa-server text-gold-400 mr-2"></i>Sistemas:</span>
+                                    <span class="font-medium">Servidores y BD</span>
+                                </div>
+                            </div>
+
+                            <div class="pt-2">
+                                <a href="https://github.com" target="_blank" class="w-full py-2.5 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-xs font-semibold text-slate-300 hover:text-gold-400 border border-slate-700 flex items-center justify-center gap-2 transition-colors">
+                                    <i class="fa-brands fa-github"></i> Visitar GitHub Pages
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-20 bg-slate-900/50 border-y border-slate-800/80 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-gold-500 tracking-widest uppercase mb-2">Trayectoria & Perfil</h2>
+                <p class="text-3xl sm:text-4xl font-heading font-bold text-white">Sobre Mí</p>
+                <div class="w-16 h-1 bg-gold-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-panel p-8 rounded-2xl border border-slate-800 hover:border-gold-500/30 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-xl bg-gold-500/10 border border-gold-500/30 text-gold-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Formación Técnica</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Estudiante avanzado de <strong class="text-slate-200">Arquitectura de Plataformas y Servicios de TI</strong>. Sólida base en administración de infraestructura, redes, sistemas operativos y virtualización.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-panel p-8 rounded-2xl border border-slate-800 hover:border-gold-500/30 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-xl bg-gold-500/10 border border-gold-500/30 text-gold-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Desarrollo de Software</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Experiencia creando aplicaciones móviles nativas y multiplataforma con <strong class="text-slate-200">Flutter y Java</strong>, integrando bases de datos locales y servicios web orientados a soluciones reales.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-panel p-8 rounded-2xl border border-slate-800 hover:border-gold-500/30 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-xl bg-gold-500/10 border border-gold-500/30 text-gold-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Experiencia Práctica</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Participación activa en proyectos pre-profesionales de desarrollo web empresarial (WordPress/Elementor y Código Personalizado), soporte técnico y despliegue informático.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-gold-500 tracking-widest uppercase mb-2">Competencias Técnicas</h2>
+                <p class="text-3xl sm:text-4xl font-heading font-bold text-white">Habilidades & Tecnologías</p>
+                <div class="w-16 h-1 bg-gold-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                
+                <!-- Skill Bars -->
+                <div class="glass-panel p-8 rounded-2xl border border-slate-800 space-y-6">
+                    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-code text-gold-400"></i> Lenguajes & Frameworks
+                    </h3>
+
+                    <!-- Flutter / Dart -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm font-medium">
+                            <span class="text-slate-200 flex items-center gap-2"><i class="fa-solid fa-mobile-button text-gold-400"></i> Flutter & Dart</span>
+                            <span class="text-gold-400 font-bold">85%</span>
+                        </div>
+                        <div class="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-gold-500 to-amber-400 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Java -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm font-medium">
+                            <span class="text-slate-200 flex items-center gap-2"><i class="fa-brands fa-java text-gold-400"></i> Java</span>
+                            <span class="text-gold-400 font-bold">80%</span>
+                        </div>
+                        <div class="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-gold-500 to-amber-400 rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+
+                    <!-- HTML / CSS / JS -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm font-medium">
+                            <span class="text-slate-200 flex items-center gap-2"><i class="fa-brands fa-html5 text-gold-400"></i> HTML5 / CSS3 / JavaScript</span>
+                            <span class="text-gold-400 font-bold">85%</span>
+                        </div>
+                        <div class="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-gold-500 to-amber-400 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+
+                    <!-- SQLite / SQL -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm font-medium">
+                            <span class="text-slate-200 flex items-center gap-2"><i class="fa-solid fa-database text-gold-400"></i> SQL & SQLite</span>
+                            <span class="text-gold-400 font-bold">75%</span>
+                        </div>
+                        <div class="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-gold-500 to-amber-400 rounded-full" style="width: 75%"></div>
+                        </div>
+                    </div>
+
+                    <!-- WordPress / Elementor -->
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-sm font-medium">
+                            <span class="text-slate-200 flex items-center gap-2"><i class="fa-brands fa-wordpress text-gold-400"></i> WordPress & Elementor</span>
+                            <span class="text-gold-400 font-bold">90%</span>
+                        </div>
+                        <div class="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-gold-500 to-amber-400 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- System Admin & Badges Grid -->
+                <div class="space-y-6">
+                    <div class="glass-panel p-8 rounded-2xl border border-slate-800">
+                        <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                            <i class="fa-solid fa-network-wired text-gold-400"></i> Administración de Sistemas & TI
+                        </h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            Acreditaciones y conocimientos aplicados en infraestructura tecnológica, despliegue de redes locales y soporte informático.
+                        </p>
+
+                        <!-- Badges Grid -->
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                            <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/50 text-center hover:border-gold-500/40 transition-colors">
+                                <i class="fa-solid fa-server text-gold-400 text-xl mb-1 block"></i>
+                                <span class="text-xs font-semibold text-slate-200">Servidores</span>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/50 text-center hover:border-gold-500/40 transition-colors">
+                                <i class="fa-solid fa-shield-halved text-gold-400 text-xl mb-1 block"></i>
+                                <span class="text-xs font-semibold text-slate-200">Seguridad TI</span>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/50 text-center hover:border-gold-500/40 transition-colors">
+                                <i class="fa-brands fa-github text-gold-400 text-xl mb-1 block"></i>
+                                <span class="text-xs font-semibold text-slate-200">Git / GitHub</span>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/50 text-center hover:border-gold-500/40 transition-colors">
+                                <i class="fa-solid fa-gears text-gold-400 text-xl mb-1 block"></i>
+                                <span class="text-xs font-semibold text-slate-200">Mantenimiento</span>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/50 text-center hover:border-gold-500/40 transition-colors">
+                                <i class="fa-solid fa-cloud text-gold-400 text-xl mb-1 block"></i>
+                                <span class="text-xs font-semibold text-slate-200">Cloud Basics</span>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/50 text-center hover:border-gold-500/40 transition-colors">
+                                <i class="fa-solid fa-diagram-project text-gold-400 text-xl mb-1 block"></i>
+                                <span class="text-xs font-semibold text-slate-200">Redes LAN</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-panel p-6 rounded-2xl border border-slate-800 flex items-center justify-between">
+                        <div>
+                            <h4 class="text-white font-bold">¿Necesitas un proyecto a medida?</h4>
+                            <p class="text-xs text-slate-400">Disponible para desarrollo freelance y practicas profesionales.</p>
+                        </div>
+                        <a href="#contact" class="px-4 py-2 bg-gold-500 text-dark-bg font-bold text-xs rounded-lg hover:bg-gold-400 transition-colors whitespace-nowrap">
+                            Contactar
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-slate-900/50 border-t border-slate-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-gold-500 tracking-widest uppercase mb-2">Portafolio Destacado</h2>
+                <p class="text-3xl sm:text-4xl font-heading font-bold text-white">Proyectos Recientes</p>
+                <div class="w-16 h-1 bg-gold-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Project 1: Turismo Acobamba -->
+                <div class="glass-panel rounded-2xl overflow-hidden border border-slate-800 hover:border-gold-500/40 transition-all duration-300 flex flex-col group">
+                    <div class="h-48 bg-slate-800 relative overflow-hidden flex items-center justify-center">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-card to-transparent z-10"></div>
+                        <i class="fa-solid fa-mountain-sun text-6xl text-slate-600 group-hover:scale-110 group-hover:text-gold-500/80 transition-all duration-500"></i>
+                        <span class="absolute top-4 right-4 bg-gold-500 text-dark-bg text-xs font-bold px-3 py-1 rounded-full z-20">
+                            App Móvil
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white group-hover:text-gold-400 transition-colors">Turismo Acobamba</h3>
+                            <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+                                Aplicación móvil diseñada para la promoción turística de la provincia de Acobamba. Guía interactiva de atractivos locales, rutas e información histórica.
+                            </p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2.5 py-1 rounded-md bg-slate-800 text-xs font-medium text-gold-400 border border-slate-700">Flutter</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-800 text-xs font-medium text-gold-400 border border-slate-700">Dart</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-800 text-xs font-medium text-gold-400 border border-slate-700">SQLite</span>
+                            </div>
+                            <button onclick="openModal('Turismo Acobamba', 'Aplicación turística completa para la región de Acobamba. Incluye mapas locales, galería de fotos, lista de restaurantes y sitios de interés con funcionamiento offline.', ['Flutter', 'Dart', 'SQLite', 'UI/UX Mobile'])" class="text-xs font-bold text-gold-400 hover:text-gold-300 flex items-center gap-1">
+                                Ver Detalles <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: MedTime -->
+                <div class="glass-panel rounded-2xl overflow-hidden border border-slate-800 hover:border-gold-500/40 transition-all duration-300 flex flex-col group">
+                    <div class="h-48 bg-slate-800 relative overflow-hidden flex items-center justify-center">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-card to-transparent z-10"></div>
+                        <i class="fa-solid fa-pills text-6xl text-slate-600 group-hover:scale-110 group-hover:text-gold-500/80 transition-all duration-500"></i>
+                        <span class="absolute top-4 right-4 bg-emerald-500 text-dark-bg text-xs font-bold px-3 py-1 rounded-full z-20">
+                            Salud / Java
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white group-hover:text-gold-400 transition-colors">MedTime</h3>
+                            <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+                                Sistema de control de medicamentos e historial de dosificación. Notificaciones para pacientes y gestión simplificada de horarios de tratamiento.
+                            </p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2.5 py-1 rounded-md bg-slate-800 text-xs font-medium text-gold-400 border border-slate-700">Java</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-800 text-xs font-medium text-gold-400 border border-slate-700">Android SDK</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-800 text-xs font-medium text-gold-400 border border-slate-700">SQLite</span>
+                            </div>
+                            <button onclick="openModal('MedTime', 'MedTime es un asistente personal para la toma de medicamentos. Ofrece alertas programadas, registro diario de salud y almacenamiento local rápido de prescriptions.', ['Java', 'Android SDK', 'SQLite', 'XML Layouts'])" class="text-xs font-bold text-gold-400 hover:text-gold-300 flex items-center gap-1">
+                                Ver Detalles <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: MobiFix Solutions -->
+                <div class="glass-panel rounded-2xl overflow-hidden border border-slate-800 hover:border-gold-500/40 transition-all duration-300 flex flex-col group">
+                    <div class="h-48 bg-slate-800 relative overflow-hidden flex items-center justify-center">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-card to-transparent z-10"></div>
+                        <i class="fa-solid fa-screwdriver-wrench text-6xl text-slate-600 group-hover:scale-110 group-hover:text-gold-500/80 transition-all duration-500"></i>
+                        <span class="absolute top-4 right-4 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full z-20">
+                            Sitio Web
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white group-hover:text-gold-400 transition-colors">MobiFix Solutions</h3>
+                            <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+                                Plataforma web institucional para servicio técnico especializado en dispositivos móviles. Cotizador de reparaciones y catálogo de repuestos.
+                            </p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2.5 py-1 rounded-md bg-slate-800 text-xs font-medium text-gold-400 border border-slate-700">WordPress</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-800 text-xs font-medium text-gold-400 border border-slate-700">Elementor</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-800 text-xs font-medium text-gold-400 border border-slate-700">CSS Personalizado</span>
+                            </div>
+                            <button onclick="openModal('MobiFix Solutions', 'Portal web responsive desarrollado para un centro de soporte informático y técnico. Incluye sistema de agendamiento de citas y soporte vía WhatsApp integrado.', ['WordPress', 'Elementor', 'SEO Basic', 'Responsive Design'])" class="text-xs font-bold text-gold-400 hover:text-gold-300 flex items-center gap-1">
+                                Ver Detalles <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: S&R Restaurante -->
+                <div class="glass-panel rounded-2xl overflow-hidden border border-slate-800 hover:border-gold-500/40 transition-all duration-300 flex flex-col group">
+                    <div class="h-48 bg-slate-800 relative overflow-hidden flex items-center justify-center">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark-card to-transparent z-10"></div>
+                        <i class="fa-solid fa-utensils text-6xl text-slate-600 group-hover:scale-110 group-hover:text-gold-500/80 transition-all duration-500"></i>
+                        <span class="absolute top-4 right-4 bg-amber-500 text-dark-bg text-xs font-bold px-3 py-1 rounded-full z-20">
+                            Web App
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white group-hover:text-gold-400 transition-colors">S&R Restaurante</h3>
+                            <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+                                Menú digital e interfaz de pedidos para restaurante. Menú gastronómico interactivo con filtro por categorías y envío directo de pedidos.
+                            </p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2.5 py-1 rounded-md bg-slate-800 text-xs font-medium text-gold-400 border border-slate-700">HTML5</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-800 text-xs font-medium text-gold-400 border border-slate-700">Tailwind CSS</span>
+                                <span class="px-2.5 py-1 rounded-md bg-slate-800 text-xs font-medium text-gold-400 border border-slate-700">JavaScript</span>
+                            </div>
+                            <button onclick="openModal('S&R Restaurante', 'Página web interactiva orientada al sector gastronómico. Permite consultar cartas dinámicas, promociones del día y realizar pedidos directos.', ['HTML5', 'Tailwind CSS', 'JavaScript Vanilla', 'UX/UI'])" class="text-xs font-bold text-gold-400 hover:text-gold-300 flex items-center gap-1">
+                                Ver Detalles <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-gold-500 tracking-widest uppercase mb-2">Conectemos</h2>
+                <p class="text-3xl sm:text-4xl font-heading font-bold text-white">Contacto Profesional</p>
+                <div class="w-16 h-1 bg-gold-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Contact Info Side -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="glass-panel p-8 rounded-2xl border border-slate-800 space-y-6">
+                        <h3 class="text-2xl font-bold text-white mb-4">Información de Contacto</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            ¿Tienes una idea de proyecto, consulta técnica o propuesta de colaboración? Siéntete libre de enviar un mensaje.
+                        </p>
+
+                        <div class="space-y-4 pt-2">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-xl border border-gold-500/20">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-400">Correo Electrónico</p>
+                                    <p class="text-slate-200 font-medium text-sm">gustavo.unocc@example.com</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-xl border border-gold-500/20">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-400">Ubicación</p>
+                                    <p class="text-slate-200 font-medium text-sm">Perú</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-xl border border-gold-500/20">
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-400">Especialidad</p>
+                                    <p class="text-slate-200 font-medium text-sm">Arquitectura de Plataformas TI</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hosting Notice for GitHub Pages -->
+                        <div class="mt-8 p-4 rounded-xl bg-slate-800/80 border border-slate-700 text-xs text-slate-300 space-y-2">
+                            <p class="font-bold text-gold-400 flex items-center gap-2">
+                                <i class="fa-brands fa-github"></i> Publicado en GitHub Pages
+                            </p>
+                            <p class="text-slate-400">
+                                Este portafolio está optimizado para ser alojado directamente desde un repositorio estático en GitHub.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-7">
+                    <form id="contact-form" class="glass-panel p-8 rounded-2xl border border-slate-800 space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label for="name" class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Nombre Completo</label>
+                                <input type="text" id="name" required placeholder="Tu nombre" class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-700 text-slate-200 focus:outline-none focus:border-gold-500 transition-colors text-sm">
+                            </div>
+
+                            <div class="space-y-2">
+                                <label for="email" class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Correo Electrónico</label>
+                                <input type="email" id="email" required placeholder="tu@email.com" class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-700 text-slate-200 focus:outline-none focus:border-gold-500 transition-colors text-sm">
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="subject" class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Asunto</label>
+                            <input type="text" id="subject" required placeholder="Motivo de mensaje" class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-700 text-slate-200 focus:outline-none focus:border-gold-500 transition-colors text-sm">
+                        </div>
+
+                        <div class="space-y-2">
+                            <label for="message" class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Mensaje</label>
+                            <textarea id="message" rows="5" required placeholder="Escribe tu mensaje aquí..." class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-700 text-slate-200 focus:outline-none focus:border-gold-500 transition-colors text-sm resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl bg-gold-500 hover:bg-gold-400 text-dark-bg font-bold text-base transition-all duration-300 gold-glow flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-slate-950 border-t border-slate-800 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4">
+            <p>© <span id="year"></span> Gustavo Unocc. Todos los derechos reservados.</p>
+            <p class="mt-2 text-slate-600">Construido con HTML5, Tailwind CSS & JavaScript • Desarrollado para GitHub Pages</p>
+        </div>
+    </footer>
+
+    <!-- Project Details Modal -->
+    <div id="project-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+        <div class="glass-panel border border-slate-700 max-w-lg w-full rounded-2xl p-6 relative space-y-4 animate-fade-in">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 id="modal-title" class="text-2xl font-bold text-white"></h3>
+            <p id="modal-description" class="text-slate-300 text-sm leading-relaxed"></p>
+            <div>
+                <h4 class="text-xs font-semibold text-gold-400 uppercase tracking-wider mb-2">Tecnologías Usadas:</h4>
+                <div id="modal-tags" class="flex flex-wrap gap-2"></div>
+            </div>
+            <div class="pt-4 border-t border-slate-800 flex justify-end">
+                <button onclick="closeModal()" class="px-5 py-2 rounded-xl bg-slate-800 text-white font-semibold text-xs hover:bg-slate-700 transition-colors">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 hidden glass-panel border border-gold-500/50 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-gold-400 text-xl"></i>
+        <div>
+            <p id="toast-title" class="font-bold text-sm">¡Mensaje enviado!</p>
+            <p id="toast-message" class="text-xs text-slate-300">Gracias por contactarme, responderé pronto.</p>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Set dynamic current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on clicking links
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Project Modal logic
+        function openModal(title, description, tags) {
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-description').textContent = description;
+            
+            const tagsContainer = document.getElementById('modal-tags');
+            tagsContainer.innerHTML = '';
+            
+            tags.forEach(tag => {
+                const tagSpan = document.createElement('span');
+                tagSpan.className = 'px-2.5 py-1 rounded-md bg-slate-800 text-xs font-medium text-gold-400 border border-slate-700';
+                tagSpan.textContent = tag;
+                tagsContainer.appendChild(tagSpan);
+            });
+
+            document.getElementById('project-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('project-modal').classList.add('hidden');
+        }
+
+        // Contact Form Submit Handler
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show toast message
+            const toast = document.getElementById('toast');
+            toast.classList.remove('hidden');
+            
+            // Clear inputs
+            this.reset();
+
+            // Hide toast after 4 seconds
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 4000);
+        });
+    </script>
+</body>
+</html>
